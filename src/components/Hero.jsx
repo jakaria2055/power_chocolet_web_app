@@ -1,9 +1,5 @@
 import {
-  Activity,
-  Dumbbell,
   MapPin,
-  PersonStanding,
-  Search,
 } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -11,7 +7,7 @@ import SpecialityCard from "./SpecialityCard";
 
 const Hero = () => {
   return (
-    <section className="w-full min-h-screen md:p-4 overflow-hidden">
+    <section className="w-full min-h-screen mb-20 md:p-4 overflow-hidden">
       {/* Top Left Logo Bubble */}
       <div className="absolute left-6 top-4 z-30 h-[95px] w-[95px] rounded-br-[42px] bg-white flex items-center justify-center">
         <div className="h-[95px] w-[95px] rounded-full bg-[#71AC16] flex items-center justify-center">
@@ -216,8 +212,26 @@ const Hero = () => {
       <div className="absolute bottom-115 right-30 z-10 grid grid-cols-3 gap-x-5 gap-y-3">
         {Array.from({ length: 16 }).map((_, i) => (
           <>
-          <img src="/icon/p.png" alt="polygon" className="w-5 h-3"/>
+          <img key={i} src="/icon/p.png" alt="polygon" className="w-5 h-3"/>
           </>
+        ))}
+      </div>
+
+       {/* Bottom Gray Dots Left Bottom */}
+      <div className="absolute -bottom-55 left-50 z-10 grid grid-cols-3 gap-x-5 gap-y-3">
+        {Array.from({ length: 12 }).map((_, i) => (
+          <div>
+          <img key={i} src="/icon/p.png" alt="polygon" className="w-5 h-3 bg-gray-300 rounded-b-full"/>
+          </div>
+        ))}
+      </div>
+
+        {/* Bottom Gray Dots Right Bottom */}
+      <div className="absolute -bottom-60 right-15 z-10 grid grid-cols-3 gap-x-5 gap-y-3">
+        {Array.from({ length: 12 }).map((_, i) => (
+          <div>
+          <img key={i} src="/icon/p.png" alt="polygon" className="w-3 h-5 bg-gray-300 rounded-l-full"/>
+          </div>
         ))}
       </div>
     </section>
