@@ -5,13 +5,15 @@ import SpecialityCard from "./SpecialityCard";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../redux/slices/userSlice";
 
+const Hero = ({ loading }) => {
 
-const Hero = ({loading}) => {
-
+  // Redux & Navigation Hooks
   const { isAuthenticated } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+
+  // Handle User Logout
 
   const handleLogout = () => {
     dispatch(logoutUser(navigate));
@@ -20,11 +22,15 @@ const Hero = ({loading}) => {
   return (
     <section className="relative w-full overflow-hidden">
       {/* =========================================================
-          MOBILE + TABLET VERSION
+          MOBILE + SMALL DEVICES VERSION
+          Visible on: < md
           ========================================================= */}
       <div className="block md:hidden px-3 pt-3 pb-8">
-        <div className="relative rounded-[28px] border-[3px] border-[#3aa0ff] bg-[#efefef] overflow-hidden">
-          {/* Top Left Logo */}
+        <div className="relative rounded-[28px]   bg-[#efefef] overflow-hidden">
+          
+          {/* =========================
+              Top Left Brand Logo
+              ========================= */}
           <div className="absolute left-0 top-0 z-30 h-[78px] w-[78px] rounded-br-[34px] bg-white flex items-center justify-center">
             <div className="h-[62px] w-[62px] rounded-full bg-[#71AC16] flex items-center justify-center">
               <img
@@ -35,7 +41,10 @@ const Hero = ({loading}) => {
             </div>
           </div>
 
-          {/* Top Right Register / Logout */}
+          {/* =========================
+              Top Right Auth Button
+              Show Register / Logout
+              ========================= */}
           <div className="absolute right-0 top-0 z-40 h-[78px] w-[170px] sm:w-[220px] rounded-bl-[34px] bg-white flex items-center justify-center">
             {isAuthenticated ? (
               <button
@@ -55,9 +64,14 @@ const Hero = ({loading}) => {
             )}
           </div>
 
-          {/* Main Black Hero */}
+          {/* =========================
+              Main Hero Section
+              ========================= */}
           <div className="relative rounded-[34px] bg-black pt-[90px] pb-8 px-4 sm:px-6 min-h-[900px] sm:min-h-[980px]">
-            {/* Mobile Nav */}
+            
+            {/* =========================
+                Mobile Navigation Button
+                ========================= */}
             <div className="absolute top-4 left-45 -translate-x-1/2 z-20">
               <div className="w-[180px] flex items-center justify-between rounded-full border-2 border-white bg-black px-5 py-3 text-white">
                 <span className="font-semibold text-sm sm:text-base">Menu</span>
@@ -65,7 +79,9 @@ const Hero = ({loading}) => {
               </div>
             </div>
 
-            {/* Social */}
+            {/* =========================
+                Social Media Section
+                ========================= */}
             <div className="mt-6 flex flex-col items-center text-white">
               <div className="flex items-center gap-2">
                 <p className="text-sm sm:text-base font-semibold">Follow On:</p>
@@ -78,7 +94,9 @@ const Hero = ({loading}) => {
               </div>
             </div>
 
-            {/* Image */}
+            {/* =========================
+                Hero Character / Banner Image
+                ========================= */}
             <div className="relative mt-8 flex justify-center">
               <img
                 src="/image/two_man.png"
@@ -87,7 +105,9 @@ const Hero = ({loading}) => {
               />
             </div>
 
-            {/* Text */}
+            {/* =========================
+                Hero Main Text + CTA Buttons
+                ========================= */}
             <div className="mt-[-30px] sm:mt-[-50px] relative z-20 flex flex-col items-center text-center">
               <img
                 src="/image/POWER.png"
@@ -107,7 +127,9 @@ const Hero = ({loading}) => {
               </div>
             </div>
 
-            {/* Specialty */}
+            {/* =========================
+                Specialty Feature Card
+                ========================= */}
             <div className="mt-10 max-w-[360px] mx-auto">
               <div className="rounded-[30px] bg-white p-3">
                 <div className="rounded-[26px] bg-[#71AC16] p-5 text-white">
@@ -137,7 +159,9 @@ const Hero = ({loading}) => {
               </div>
             </div>
 
-            {/* Decorative dots */}
+            {/* =========================
+                Decorative Polygon Dots
+                ========================= */}
             <div className="absolute top-[110px] right-4 grid grid-cols-3 gap-x-3 gap-y-2 opacity-80">
               {Array.from({ length: 12 }).map((_, i) => (
                 <img key={i} src="/icon/p.png" alt="polygon" className="w-4 h-2" />
@@ -159,12 +183,16 @@ const Hero = ({loading}) => {
         </div>
       </div>
 
-      {/*===========================================================
-      Medium Screen
-      ==============================================================*/}
+      {/* =========================================================
+          TABLET / MEDIUM DEVICES VERSION
+          Visible on: md to xl
+          ========================================================= */}
       <div className="hidden md:block xl:hidden px-3 pt-3 pb-8">
-        <div className="relative rounded-[28px] border-[3px] border-[#3aa0ff] bg-[#efefef] overflow-hidden">
-          {/* Top Left Logo */}
+        <div className="relative rounded-[28px] bg-[#efefef] overflow-hidden">
+          
+          {/* =========================
+              Top Left Brand Logo
+              ========================= */}
           <div className="absolute left-0 top-0 z-30 h-[78px] w-[78px] rounded-br-[34px] bg-white flex items-center justify-center">
             <div className="h-[62px] w-[62px] rounded-full bg-[#71AC16] flex items-center justify-center">
               <img
@@ -175,7 +203,10 @@ const Hero = ({loading}) => {
             </div>
           </div>
 
-          {/* Top Right Register / Logout */}
+          {/* =========================
+              Top Right Auth Button
+              Show Register / Logout
+              ========================= */}
           <div className="absolute right-0 top-0 z-30 h-[78px] w-[170px] sm:w-[220px] rounded-bl-[34px] bg-white flex items-center justify-center">
             {isAuthenticated ? (
               <button
@@ -195,9 +226,14 @@ const Hero = ({loading}) => {
             )}
           </div>
 
-          {/* Main Black Hero */}
+          {/* =========================
+              Main Hero Section
+              ========================= */}
           <div className="relative rounded-[34px] bg-black pt-[90px] pb-8 px-4 sm:px-6 min-h-[900px] sm:min-h-[980px]">
-            {/* NAVBAR */}
+            
+            {/* =========================
+                Tablet Navigation Bar
+                ========================= */}
             <div className=" absolute top-2 left-20 z-30 flex items-center rounded-full border-2 border-white bg-black px-2 py-2 shadow-[0_0_0_2px_rgba(255,255,255,0.05)]">
               <div className="flex items-center gap-10 rounded-full bg-black px-8 py-4 text-white text-[20px] font-medium">
                 <Link to="#" className="hover:text-[#86b817] transition">
@@ -219,7 +255,9 @@ const Hero = ({loading}) => {
               </div>
             </div>
 
-            {/* Social */}
+            {/* =========================
+                Social Media Section
+                ========================= */}
             <div className="mt-6 flex flex-col items-center text-white">
               <div className="flex items-center gap-2">
                 <p className="text-sm sm:text-base font-semibold">Follow On:</p>
@@ -232,7 +270,9 @@ const Hero = ({loading}) => {
               </div>
             </div>
 
-            {/* Image */}
+            {/* =========================
+                Hero Character / Banner Image
+                ========================= */}
             <div className="relative mt-8 flex justify-center">
               <img
                 src="/image/two_man.png"
@@ -241,7 +281,9 @@ const Hero = ({loading}) => {
               />
             </div>
 
-            {/* Text */}
+            {/* =========================
+                Hero Main Text + CTA Buttons
+                ========================= */}
             <div className="mt-[-30px] sm:mt-[-50px] relative z-20 flex flex-col items-center text-center">
               <img
                 src="/image/POWER.png"
@@ -261,7 +303,9 @@ const Hero = ({loading}) => {
               </div>
             </div>
 
-            {/* Specialty */}
+            {/* =========================
+                Specialty Feature Card
+                ========================= */}
             <div className="mt-10 max-w-[360px] mx-auto">
               <div className="rounded-[30px] bg-white p-3">
                 <div className="rounded-[26px] bg-[#71AC16] p-5 text-white">
@@ -291,7 +335,9 @@ const Hero = ({loading}) => {
               </div>
             </div>
 
-            {/* Decorative dots */}
+            {/* =========================
+                Decorative Polygon Dots
+                ========================= */}
             <div className="absolute top-[110px] right-4 grid grid-cols-3 gap-x-3 gap-y-2 opacity-80">
               {Array.from({ length: 12 }).map((_, i) => (
                 <img key={i} src="/icon/p.png" alt="polygon" className="w-4 h-2" />
@@ -315,16 +361,23 @@ const Hero = ({loading}) => {
 
       {/* =========================================================
           DESKTOP / LARGE SCREEN VERSION
+          Visible on: xl and above
           ========================================================= */}
       <div className="hidden xl:block">
         <section className="w-full min-h-screen mb-20 md:p-4 overflow-hidden">
+          
+          {/* =========================
+              Top Decorative Polygon Dots
+              ========================= */}
           <div className="absolute top-40 right-15 grid grid-cols-3 gap-x-3 gap-y-2 opacity-60">
             {Array.from({ length: 12 }).map((_, i) => (
               <img key={i} src="/icon/p.png" alt="polygon" className="w-5 h-3" />
             ))}
           </div>
 
-          {/* Top Left Logo Bubble */}
+          {/* =========================
+              Top Left Brand Logo
+              ========================= */}
           <div className="absolute left-6 top-4 z-30 h-[95px] w-[95px] rounded-br-[42px] flex items-center justify-center">
             <div className="h-[95px] w-[95px] rounded-full bg-[#71AC16] flex items-center justify-center">
               <div>
@@ -337,7 +390,10 @@ const Hero = ({loading}) => {
             </div>
           </div>
 
-          {/* Top Right Register / Logout */}
+          {/* =========================
+              Top Right Auth Button
+              Show Register / Logout
+              ========================= */}
           <div className="absolute right-10 top-3 z-30 h-[80px] w-[300px] rounded-bl-[42px] flex items-center justify-center">
             {isAuthenticated ? (
               <button
@@ -357,11 +413,16 @@ const Hero = ({loading}) => {
             )}
           </div>
 
+          {/* =========================
+              Background Shape Image
+              ========================= */}
           <div>
             <img src="/image/Subtract.png" alt="" className="w-full h-[110vh]" />
           </div>
 
-          {/* NAVBAR */}
+          {/* =========================
+              Desktop Navigation Bar
+              ========================= */}
           <div className="absolute top-8 left-45 z-30 flex items-center rounded-full border-2 border-white bg-black px-2 py-2 shadow-[0_0_0_2px_rgba(255,255,255,0.05)]">
             <div className="flex items-center gap-10 rounded-full bg-black px-8 py-4 text-white text-[20px] font-medium">
               <Link to="#" className="hover:text-[#86b817] transition">
@@ -383,7 +444,9 @@ const Hero = ({loading}) => {
             </div>
           </div>
 
-          {/* Social Left */}
+          {/* =========================
+              Left Social Media Section
+              ========================= */}
           <div className="absolute left-22 top-40 z-20 flex items-center justify-center gap-2 text-white">
             <p className="text-[24px] font-semibold text-xs">Follow On:</p>
             <div className="flex items-center gap-5 text-white">
@@ -394,7 +457,9 @@ const Hero = ({loading}) => {
             </div>
           </div>
 
-          {/* BACKGROUND DOTTED ICON */}
+          {/* =========================
+              Left Decorative Polygon Layout
+              ========================= */}
           <div>
             <img src="/icon/p.png" alt="" className="w-5 h-3 absolute left-22 top-50" />
             <img src="/icon/p.png" alt="" className="w-5 h-3 absolute left-22 top-55" />
@@ -414,12 +479,16 @@ const Hero = ({loading}) => {
             <img src="/icon/p.png" alt="" className="w-5 h-3 absolute left-82 top-70" />
           </div>
 
-          {/* Left Speciality Card */}
+          {/* =========================
+              Left Specialty Background Shape
+              ========================= */}
           <div className="absolute left-0 top-72 z-20 h-[270px] w-[380px] rounded-tr-[120px] rounded-br-[55px] rounded-tl-[0px] rounded-bl-[55px] p-4">
             <img src="/image/Vector3.png" alt="" className="h-[71vh] w-full" />
           </div>
 
-          {/* Left Speciality Card Box*/}
+          {/* =========================
+              Left Specialty Content Box
+              ========================= */}
           <div className="absolute left-10 top-105 z-20">
             <h3 className="mb-8 text-[30px] font-bold uppercase text-white leading-tight">
               Our Specialty
@@ -445,7 +514,9 @@ const Hero = ({loading}) => {
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* =========================
+              Main Hero Character Image
+              ========================= */}
           <div className="absolute inset-0 flex items-center justify-center">
             <img
               src="/image/two_man.png"
@@ -454,6 +525,9 @@ const Hero = ({loading}) => {
             />
           </div>
 
+          {/* =========================
+              Main Hero Text + CTA Buttons
+              ========================= */}
           <div className="absolute left-170 top-[465px] z-20">
             <img src="/image/POWER.png" alt="power" className="w-[105vh]" />
 
@@ -469,14 +543,18 @@ const Hero = ({loading}) => {
             </div>
           </div>
 
-          {/* Bottom Gray Dots Right */}
+          {/* =========================
+              Bottom Right Decorative Dots
+              ========================= */}
           <div className="absolute bottom-115 right-30 z-10 grid grid-cols-3 gap-x-5 gap-y-3">
             {Array.from({ length: 16 }).map((_, i) => (
               <img key={i} src="/icon/p.png" alt="polygon" className="w-5 h-3" />
             ))}
           </div>
 
-          {/* Bottom Gray Dots Left Bottom */}
+          {/* =========================
+              Bottom Left Decorative Dots
+              ========================= */}
           <div className="absolute -bottom-55 left-50 z-10 grid grid-cols-3 gap-x-5 gap-y-3">
             {Array.from({ length: 12 }).map((_, i) => (
               <div key={i}>
@@ -489,7 +567,9 @@ const Hero = ({loading}) => {
             ))}
           </div>
 
-          {/* Bottom Gray Dots Right Bottom */}
+          {/* =========================
+              Bottom Right Vertical Dots
+              ========================= */}
           <div className="absolute -bottom-60 right-15 z-10 grid grid-cols-3 gap-x-5 gap-y-3">
             {Array.from({ length: 12 }).map((_, i) => (
               <div key={i}>

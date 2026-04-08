@@ -1,12 +1,16 @@
 import React from "react";
 
+// Footer section component
 const Footer = () => {
   return (
+    // Main footer wrapper
     <footer className=" px-4 sm:px-6 lg:px-8 bg-white mt-20">
+      {/* Top horizontal divider */}
       <div className="bg-gray-400 max-w-6xl h-[1px] mx-auto mb-15"></div>
 
+      {/* Footer content grid */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-10">
-        {/* About Section (spans more columns) */}
+        {/* About section */}
         <div className="lg:col-span-3">
           <h3 className="text-black text-xl font-semibold mb-4 hover:underline hover:decoration-blue-700">About</h3>
           <p className="text-sm leading-relaxed hover:underline hover:decoration-blue-400">
@@ -15,7 +19,10 @@ const Footer = () => {
             community you need to build the body of your dreams.
           </p>
 
+          {/* About section divider */}
           <div className="bg-black w-[200px] h-[2px] mx-left mt-10"></div>
+
+          {/* Social media links */}
           <div className="flex space-x-4 mt-4">
             <div className="hover:underline hover:decoration-blue-700">Social Media: </div>
             <a href="#" className="hover:text-blue-400 font-semibold">
@@ -30,7 +37,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Quick Links */}
+        {/* Quick links section */}
         <div className="lg:col-span-1">
           <h3 className="text-black text-xl font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm">
@@ -57,7 +64,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Our Service */}
+        {/* Services section */}
         <div className="lg:col-span-1">
           <h3 className="text-black text-xl font-semibold mb-4">Our Service</h3>
           <ul className="space-y-2 text-sm">
@@ -68,7 +75,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Contact Info */}
+        {/* Contact information section */}
         <div className="lg:col-span-2">
           <h3 className="text-black text-xl font-semibold mb-4">
             Contact Info
@@ -92,8 +99,9 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Line */}
+      {/* Footer bottom copyright area */}
       <div className="mt-10 pt-6 text-center text-sm text-gray-400 pb-10">
+        {/* Bottom divider */}
         <div className="bg-gray-400 max-w-96 h-[1px] mx-auto mb-10"></div>
         websitename.com©2024 all right reserve
       </div>

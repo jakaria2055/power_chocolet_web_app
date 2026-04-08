@@ -1,11 +1,15 @@
+// Import Play icon from lucide-react
 import { Play } from "lucide-react";
 
+// Main Train section component
 export default function Train() {
   return (
+    // Section wrapper
     <section className="w-full px-3 py-6 pb-20 sm:px-4 md:px-5 lg:px-6 overflow-hidden">
+      {/* Main container */}
       <div className="relative mx-auto w-full max-w-[1450px]">
 
-        {/* Heading */}
+        {/* Section heading */}
         <div className="mb-8 px-2 ml-2 sm:px-1">
           <h2 className="text-[26px] sm:text-[32px] font-bold text-[#444]">
             Train Like a Champion
@@ -15,10 +19,12 @@ export default function Train() {
           </p>
         </div>
 
-        {/* Main Box */}
+        {/* Main training content box */}
         <div className="relative rounded-[34px] sm:rounded-[40px] lg:rounded-[48px] bg-black hover:outline-2 hover:outline-blue-400 px-5 py-5 sm:px-7 sm:py-7 lg:px-8 lg:py-8">
+          {/* Responsive grid layout */}
           <div className="grid grid-cols-1 lg:grid-cols-[430px_1fr_1fr] xl:grid-cols-[460px_1fr_1fr] gap-8 lg:gap-10 items-stretch">
-            {/* Left Image */}
+            
+            {/* Left image section */}
             <div className="h-full">
               <div className="h-[380px] sm:h-[480px] lg:h-full min-h-[420px] rounded-[26px] sm:rounded-[30px] overflow-hidden bg-[#6e98b0]">
                 <img
@@ -29,13 +35,15 @@ export default function Train() {
               </div>
             </div>
 
-            {/* Middle Column */}
+            {/* Middle information column */}
             <div className="flex flex-col justify-between py-1 sm:py-2 lg:py-4">
               <div>
+                {/* Focus area heading */}
                 <h3 className="text-white text-[28px] sm:text-[32px] font-semibold hover:underline hover:decoration-blue-400 mb-8 sm:mb-10">
                   Training Focus Areas:
                 </h3>
 
+                {/* Focus area content */}
                 <div className="space-y-10 sm:space-y-12">
                   <InfoBlock
                     title="Strength & Conditioning"
@@ -53,13 +61,15 @@ export default function Train() {
               </div>
             </div>
 
-            {/* Right Column */}
+            {/* Right information column */}
             <div className="flex flex-col justify-between py-1 sm:py-2 lg:py-4">
               <div>
+                {/* Why train with us heading */}
                 <h3 className="text-white text-[28px] sm:text-[32px] font-semibold mb-8 sm:mb-10 hover:underline hover:decoration-blue-400">
                   Why Train With Us:
                 </h3>
 
+                {/* Benefits content */}
                 <div className="space-y-10 sm:space-y-12">
                   <InfoBlock
                     title="Expert Coaches"
@@ -72,12 +82,14 @@ export default function Train() {
                 </div>
               </div>
 
-              {/* CTA Buttons */}
+              {/* CTA button section */}
               <div className="mt-10 flex flex-wrap items-center gap-8">
+                {/* Main action button */}
                 <button className="h-[68px] sm:h-[74px] px-8 sm:px-14 rounded-[18px] bg-[#57B233] text-white text-[22px] sm:text-[26px] font-semibold shadow-[0_6px_20px_rgba(103,190,46,0.25)] transition hover:scale-[1.03]">
                   Punch Now
                 </button>
 
+                {/* Video play button */}
                 <button className="relative flex h-[65px] w-[65px] sm:h-[78px] sm:w-[78px] items-center justify-center rounded-full border border-[#67be2e]/20 text-[#57B233] transition hover:scale-105 hover:focus:border-blue-500">
                   <div className="absolute inset-0 rounded-full border-2 hover:border-4 hover:border-blue-400 border-dashed border-[#67be2e]/70"></div>
                   <Play
@@ -91,6 +103,7 @@ export default function Train() {
             </div>
           </div>
 
+          {/* Bottom decorative polygon dots */}
           <div className="absolute left-20 bottom-[-95px] hidden md:grid grid-cols-3 gap-4 -rotate-45 ">
             {Array.from({ length: 10 }).map((_, i) => (
               <div>
@@ -109,12 +122,17 @@ export default function Train() {
   );
 }
 
+// Reusable information block component
 function InfoBlock({ title, text }) {
   return (
+    // Info block wrapper
     <div>
+      {/* Info title */}
       <h4 className="text-[#cfcfcf] text-[22px] sm:text-[24px] font-semibold leading-tight hover:underline hover:decoration-blue-400">
         {title}
       </h4>
+
+      {/* Info description */}
       <p className="mt-3 text-[#a7a7a7] text-[17px] sm:text-[18px] leading-[1.65] hover:underline hover:decoration-blue-400">
         {text}
       </p>

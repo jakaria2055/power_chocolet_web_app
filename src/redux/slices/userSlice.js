@@ -10,7 +10,7 @@ const savedUser = localStorage.getItem("user");
 const initialState = {
   user: savedUser ? JSON.parse(savedUser) : null,
   token: savedToken || null,
-  registerData: null, // OTP + email store হবে এখানে
+  registerData: null, // OTP + email store 
   loading: false,
   error: null,
   isAuthenticated: !!savedToken,

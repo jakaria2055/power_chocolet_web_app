@@ -1,8 +1,11 @@
 import { useState } from "react";
 
+// Newsletter subscription component
 export default function Newsletter() {
+  // State for email input
   const [email, setEmail] = useState("");
 
+  // Handles subscribe action
   const handleSubscribe = () => {
     if (!email) return;
     alert(`Subscribed with: ${email}`);
@@ -10,7 +13,9 @@ export default function Newsletter() {
   };
 
   return (
+    // Main newsletter section
     <section className="relative w-full px-4 py-10 sm:px-6 lg:px-10 flex justify-center">
+      {/* Top-right decorative polygon pattern */}
       <div className="absolute right-10 -top-5 hidden md:grid grid-cols-3 gap-4  ">
         {Array.from({ length: 10 }).map((_, i) => (
           <div>
@@ -24,19 +29,20 @@ export default function Newsletter() {
         ))}
       </div>
 
+      {/* Newsletter content container */}
       <div className="bg-black rounded-3xl w-6xl px-6 py-14 sm:px-12 lg:px-20 text-center">
-        {/* Eyebrow */}
+        {/* Section intro text */}
         <p className="text-white text-sm sm:text-base font-normal mb-3">
           Join our community
         </p>
 
-        {/* Heading */}
+        {/* Main heading */}
         <h2 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
           Subscribe to our{" "}
           <span className="relative inline-block">newsletter</span>
         </h2>
 
-        {/* Description */}
+        {/* Supporting description */}
         <p className="text-neutral-400 text-sm sm:text-base max-w-3xl mx-auto mb-10 leading-relaxed">
           Join our community of fitness enthusiasts and athletes! By subscribing
           to our newsletter, you’ll receive expert training tips, nutrition
@@ -44,7 +50,7 @@ export default function Newsletter() {
           and products.
         </p>
 
-        {/* Input + Button */}
+        {/* Email input and subscribe button */}
         <div className="flex items-center max-w-lg mx-auto bg-neutral-950 border-2 border-white  rounded-full px-3 py-2 gap-2">
           <input
             type="email"
@@ -63,6 +69,7 @@ export default function Newsletter() {
         </div>
       </div>
 
+      {/* Bottom-left decorative polygon pattern */}
       <div className="absolute left-10 -bottom-10 hidden md:grid grid-cols-3 gap-4 space-x-5  ">
         {Array.from({ length: 10 }).map((_, i) => (
           <div>
