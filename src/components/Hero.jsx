@@ -1,20 +1,28 @@
 import { MapPin, Menu } from "lucide-react";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SpecialityCard from "./SpecialityCard";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../redux/slices/userSlice";
 
-const Hero = () => {
 
-  const testFunc = () => {
-    console.log("Heloooooooooooooooo")
-  }
+const Hero = ({loading}) => {
+
+  const { isAuthenticated } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+
+  const handleLogout = () => {
+    dispatch(logoutUser(navigate));
+  };
 
   return (
     <section className="relative w-full overflow-hidden">
       {/* =========================================================
           MOBILE + TABLET VERSION
           ========================================================= */}
-      <div className="block  md:hidden px-3 pt-3 pb-8">
+      <div className="block md:hidden px-3 pt-3 pb-8">
         <div className="relative rounded-[28px] border-[3px] border-[#3aa0ff] bg-[#efefef] overflow-hidden">
           {/* Top Left Logo */}
           <div className="absolute left-0 top-0 z-30 h-[78px] w-[78px] rounded-br-[34px] bg-white flex items-center justify-center">
@@ -27,22 +35,35 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Top Right Register */}
-          <div className="absolute right-0 top-0 z-40 h-[78px] w-[170px] sm:w-[220px]  rounded-bl-[34px] bg-white flex items-center justify-center">
-            <button onClick={testFunc} className="h-[56px] w-[140px] sm:w-[180px] rounded-full bg-[#71AC16] hover:bg-[#466f09] text-white text-[14px] sm:text-[16px] font-extrabold tracking-wide shadow-md transition hover:scale-[1.02]">
-              REGISTER
-            </button>
+          {/* Top Right Register / Logout */}
+          <div className="absolute right-0 top-0 z-40 h-[78px] w-[170px] sm:w-[220px] rounded-bl-[34px] bg-white flex items-center justify-center">
+            {isAuthenticated ? (
+              <button
+                onClick={handleLogout}
+                disabled={loading}
+                className="h-[56px] w-[140px] sm:w-[180px] rounded-full bg-red-500 hover:bg-red-600 text-white text-[14px] sm:text-[16px] font-extrabold tracking-wide shadow-md transition hover:scale-[1.02] flex items-center justify-center disabled:opacity-70"
+              >
+                {loading ? "LOADING..." : "LOGOUT"}
+              </button>
+            ) : (
+              <Link
+                to={"/register"}
+                className="h-[56px] w-[140px] sm:w-[180px] rounded-full bg-[#71AC16] hover:bg-[#466f09] text-white text-[14px] sm:text-[16px] font-extrabold tracking-wide shadow-md transition hover:scale-[1.02] flex items-center justify-center"
+              >
+                REGISTER
+              </Link>
+            )}
           </div>
 
           {/* Main Black Hero */}
           <div className="relative rounded-[34px] bg-black pt-[90px] pb-8 px-4 sm:px-6 min-h-[900px] sm:min-h-[980px]">
             {/* Mobile Nav */}
-<div className="absolute top-4 left-45 -translate-x-1/2 z-20">
-  <div className="w-[180px] flex items-center justify-between rounded-full border-2 border-white bg-black px-5 py-3 text-white">
-    <span className="font-semibold text-sm sm:text-base">Menu</span>
-    <Menu size={22} />
-  </div>
-</div>
+            <div className="absolute top-4 left-45 -translate-x-1/2 z-20">
+              <div className="w-[180px] flex items-center justify-between rounded-full border-2 border-white bg-black px-5 py-3 text-white">
+                <span className="font-semibold text-sm sm:text-base">Menu</span>
+                <Menu size={22} />
+              </div>
+            </div>
 
             {/* Social */}
             <div className="mt-6 flex flex-col items-center text-white">
@@ -138,11 +159,10 @@ const Hero = () => {
         </div>
       </div>
 
-
       {/*===========================================================
       Medium Screen
       ==============================================================*/}
-        <div className="hidden md:block xl:hidden px-3 pt-3 pb-8">
+      <div className="hidden md:block xl:hidden px-3 pt-3 pb-8">
         <div className="relative rounded-[28px] border-[3px] border-[#3aa0ff] bg-[#efefef] overflow-hidden">
           {/* Top Left Logo */}
           <div className="absolute left-0 top-0 z-30 h-[78px] w-[78px] rounded-br-[34px] bg-white flex items-center justify-center">
@@ -155,36 +175,49 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Top Right Register */}
-          <div className="absolute right-0 top-0 z-30 h-[78px] w-[170px] sm:w-[220px]  rounded-bl-[34px] bg-white flex items-center justify-center">
-            <button onClick={testFunc} className="h-[56px] w-[140px] sm:w-[180px] rounded-full bg-[#71AC16] hover:bg-[#466f09] text-white text-[14px] sm:text-[16px] font-extrabold tracking-wide shadow-md transition hover:scale-[1.02]">
-              REGISTER
-            </button>
+          {/* Top Right Register / Logout */}
+          <div className="absolute right-0 top-0 z-30 h-[78px] w-[170px] sm:w-[220px] rounded-bl-[34px] bg-white flex items-center justify-center">
+            {isAuthenticated ? (
+              <button
+                onClick={handleLogout}
+                disabled={loading}
+                className="h-[56px] w-[140px] sm:w-[180px] rounded-full bg-red-500 hover:bg-red-600 text-white text-[14px] sm:text-[16px] font-extrabold shadow-md transition hover:scale-[1.02] flex items-center justify-center disabled:opacity-70"
+              >
+                {loading ? "LOADING..." : "LOGOUT"}
+              </button>
+            ) : (
+              <Link
+                to={"/register"}
+                className="h-[56px] w-[140px] sm:w-[180px] rounded-full bg-[#71AC16] hover:bg-[#466f09] text-white text-[14px] sm:text-[16px] font-extrabold shadow-md transition hover:scale-[1.02] flex items-center justify-center"
+              >
+                REGISTER
+              </Link>
+            )}
           </div>
 
           {/* Main Black Hero */}
           <div className="relative rounded-[34px] bg-black pt-[90px] pb-8 px-4 sm:px-6 min-h-[900px] sm:min-h-[980px]">
-          {/* NAVBAR */}
-          <div className=" absolute top-2 left-20 z-30 flex items-center rounded-full border-2 border-white bg-black px-2 py-2 shadow-[0_0_0_2px_rgba(255,255,255,0.05)]">
-            <div className="flex items-center gap-10 rounded-full bg-black px-8 py-4 text-white text-[20px] font-medium">
-              <Link to="#" className="hover:text-[#86b817] transition">
-                Home
-              </Link>
-              <Link to="#" className="hover:text-[#86b817] transition">
-                Our gym location
-              </Link>
-              <span className="text-white/70">|</span>
-            </div>
+            {/* NAVBAR */}
+            <div className=" absolute top-2 left-20 z-30 flex items-center rounded-full border-2 border-white bg-black px-2 py-2 shadow-[0_0_0_2px_rgba(255,255,255,0.05)]">
+              <div className="flex items-center gap-10 rounded-full bg-black px-8 py-4 text-white text-[20px] font-medium">
+                <Link to="#" className="hover:text-[#86b817] transition">
+                  Home
+                </Link>
+                <Link to="#" className="hover:text-[#86b817] transition">
+                  Our gym location
+                </Link>
+                <span className="text-white/70">|</span>
+              </div>
 
-            <div className="ml-3 flex items-center gap-2 rounded-full bg-[#3d3d3d] px-8 py-4 text-white/90 min-w-[220px]">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="w-20 text-white placeholder:text-white bg-transparent outline-none"
-              />
-              <img src="/icon/magnifying.png" alt="" className="ml-auto w-5 h-5" />
+              <div className="ml-3 flex items-center gap-2 rounded-full bg-[#3d3d3d] px-8 py-4 text-white/90 min-w-[220px]">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="w-20 text-white placeholder:text-white bg-transparent outline-none"
+                />
+                <img src="/icon/magnifying.png" alt="" className="ml-auto w-5 h-5" />
+              </div>
             </div>
-          </div>
 
             {/* Social */}
             <div className="mt-6 flex flex-col items-center text-white">
@@ -286,14 +319,15 @@ const Hero = () => {
       <div className="hidden xl:block">
         <section className="w-full min-h-screen mb-20 md:p-4 overflow-hidden">
           <div className="absolute top-40 right-15 grid grid-cols-3 gap-x-3 gap-y-2 opacity-60">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <img key={i} src="/icon/p.png" alt="polygon" className="w-5 h-3" />
-              ))}
-            </div>
+            {Array.from({ length: 12 }).map((_, i) => (
+              <img key={i} src="/icon/p.png" alt="polygon" className="w-5 h-3" />
+            ))}
+          </div>
+
           {/* Top Left Logo Bubble */}
           <div className="absolute left-6 top-4 z-30 h-[95px] w-[95px] rounded-br-[42px] flex items-center justify-center">
             <div className="h-[95px] w-[95px] rounded-full bg-[#71AC16] flex items-center justify-center">
-              <div className="">
+              <div>
                 <img
                   src="/icon/paper-plane(1) 1.png"
                   alt="logo"
@@ -303,11 +337,24 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Top Right Register Bubble */}
+          {/* Top Right Register / Logout */}
           <div className="absolute right-10 top-3 z-30 h-[80px] w-[300px] rounded-bl-[42px] flex items-center justify-center">
-            <button onClick={testFunc} className="h-[74px] w-[120vh] rounded-full bg-[#71AC16] text-white text-[20px] font-extrabold tracking-wide shadow-md transition hover:scale-[1.02]">
-              REGISTER
-            </button>
+            {isAuthenticated ? (
+              <button
+                onClick={handleLogout}
+                disabled={loading}
+                className="h-[74px] w-[120vh] rounded-full bg-red-500 hover:bg-red-600 text-white text-[20px] font-extrabold shadow-md transition hover:scale-[1.02] flex items-center justify-center disabled:opacity-70"
+              >
+                {loading ? "LOADING..." : "LOGOUT"}
+              </button>
+            ) : (
+              <Link
+                to={"/register"}
+                className="h-[74px] w-[120vh] rounded-full bg-[#71AC16] text-white text-[20px] font-extrabold shadow-md transition hover:scale-[1.02] flex items-center justify-center"
+              >
+                REGISTER
+              </Link>
+            )}
           </div>
 
           <div>
@@ -380,23 +427,15 @@ const Hero = () => {
 
             <div className="space-y-5">
               <SpecialityCard
-                icon={
-                  <>
-                    <img src="/icon/yoga1.png" alt="" />
-                  </>
-                }
+                icon={<img src="/icon/yoga1.png" alt="" />}
                 title="Ground running"
               />
               <SpecialityCard
-                icon={
-                  <>
-                    <img src="/icon/yoga2.png" alt="" />
-                  </>
-                }
+                icon={<img src="/icon/yoga2.png" alt="" />}
                 title="Yoga Assistance"
               />
               <div className="flex items-center gap-4 h-[12vh] w-[40vh] rounded-2xl rounded-b-[35px] border border-white/50 bg-[#8bb945] px-5 py-5 shadow-inner">
-                <div className="flex h-[52px] w-[52px] items-center justify-center rounded-[14px] border border-white/60 text-white  backdrop-blur-lg">
+                <div className="flex h-[52px] w-[52px] items-center justify-center rounded-[14px] border border-white/60 text-white backdrop-blur-lg">
                   <img src="/icon/yoga2.png" alt="" />
                 </div>
                 <p className="text-[20px] font-semibold text-white">
