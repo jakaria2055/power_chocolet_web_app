@@ -2,14 +2,8 @@ import { Play } from "lucide-react";
 
 export default function Train() {
   return (
-    <section className="w-full px-3 py-6 pb-30 sm:px-4 md:px-5 lg:px-6 overflow-hidden">
+    <section className="w-full px-3 py-6 pb-20 sm:px-4 md:px-5 lg:px-6 overflow-hidden">
       <div className="relative mx-auto w-full max-w-[1450px]">
-        {/* Top Right Dots */}
-        <div className="absolute right-[8%] top-0 hidden md:grid grid-cols-3 gap-2 opacity-60">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <span key={i} className="h-5 w-2 rounded-full bg-[#c9c9c9]"></span>
-          ))}
-        </div>
 
         {/* Heading */}
         <div className="mb-8 px-2 ml-2 sm:px-1">
